@@ -1,0 +1,31 @@
+.simPortLabel {
+    display: inline-flex;
+    align-items: center;
+
+    &__label {
+        padding: 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    &__port {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+
+        &--left {
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        &--right {
+            border-bottom-left-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+    }
+}
+
+.simPortSpacer{
+    margin-left: auto;
+}

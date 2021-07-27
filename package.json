@@ -1,0 +1,60 @@
+{
+	"name": "linuxcnc_halbuilder",
+	"version": "0.0.1",
+	"author": "dev-git-usr",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "./node_modules/.bin/webpack serve --open"
+	},
+	"keywords": [
+		"linuxcnc"
+	],
+	"main": "./dist/index.js",
+	"typings": "./dist/@types/index",
+	"dependencies": {
+		"@babel/core": "^7.13.13",
+		"@babel/preset-env": "^7.13.12",
+		"@babel/preset-react": "^7.13.13",
+		"@emotion/react": "^11.1.5",
+		"@emotion/styled": "^11.1.5",
+		"@material-ui/core": "^4.12.1",
+		"@projectstorm/react-diagrams": "^6.5.0",
+		"babel-loader": "^8.2.2",
+		"child_process": "^1.0.2",
+		"closest": "0.0.1",
+		"css-loader": "^5.2.0",
+		"dagre": "^0.8.5",
+		"dock-spawn-ts": "^2.220.0",
+		"material-ui": "^0.20.2",
+		"node-shell-parser": "^0.2.1",
+		"pathfinding": "^0.4.18",
+		"paths-js": "^0.4.11",
+		"react": "^17.0.2",
+		"react-contexify": "^5.0.0",
+		"react-contextify": "^0.1.0",
+		"react-contextmenu": "^2.14.0",
+		"react-dom": "^17.0.2",
+		"react-icons": "^4.2.0",
+		"react-motion": "^0.5.2",
+		"react-table": "^7.7.0",
+		"resize-observer-polyfill": "^1.5.1",
+		"socket.io": "^4.1.2",
+		"socket.io-client": "^4.1.2",
+		"style-loader": "^2.0.0",
+		"ts-loader": "^8.1.0",
+		"typescript": "^4.2.3",
+		"webpack-cli": "^4.6.0"
+	},
+	"gitHead": "bb878657ba0c2f81764f32901fd96158a0f8352e",
+	"devDependencies": {
+		"process": "^0.11.10",
+		"sass": "^1.35.2",
+		"sass-loader": "^12.1.0",
+		"webpack": "^5.44.0",
+		"webpack-dev-server": "^3.11.2"
+	},
+	"browser": {
+		"child_process": false
+	}
+}
