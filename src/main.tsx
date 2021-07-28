@@ -49,6 +49,7 @@ import { TrayItemWidget } from './TrayItemWidget';
 import { DefaultState } from './DefaultState';
 import './dock';
 import { FiRefreshCw } from 'react-icons/fi';
+import { create_window } from './dock';
 
 namespace S {
 	export const Body = styled.div`
@@ -335,6 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	/*ReactDOM.render(<TrayWidget id="signaltray">
 					</TrayWidget>, document.querySelector('#solution_window'));*/
 	ReactDOM.render(
-			<BiHelpCircle id="helpicon" onClick={({event}) => HAL_get_Manual("Help")} />, document.querySelector('#helpbutton'));
+			<BiHelpCircle id="helpicon" onClick={({event}) => {
+				var window = create_window("Help", "help");
+				window.innerHTML = '<object type="text/html" data="help.html" ></object>'
+			}} />, document.querySelector('#helpbutton'));
 });
 

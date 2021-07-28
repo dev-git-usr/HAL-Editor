@@ -202,27 +202,34 @@ window.onload = () => {
 
 };
 
+export function create_window(title: string, id: string, ) {
+    var windowdiv = document.getElementById(id);
+    if(windowdiv == null) {
+        //Container does not exist, so create one and add to Dockmanager
+        windowdiv = document.createElement("div");
+        windowdiv.id = id;
+        windowdiv.setAttribute("data-panel-caption", title);
+        var panel = new PanelContainer(windowdiv, dockManager); // invisible Dialog has no size, so size it manually
+        panel.width = 600;
+        panel.height = 400;
+        //dockManager.floatDialog(manual_window, 50, 50);
+        dockManager.floatDialog(panel, 50, 50);
+        return windowdiv;
+    } else {
+        //Container does already exist, return found container
+        return windowdiv;
+    }
+
+}
 export function show_manual(msg) {
     var manualdiv = document.getElementById("manual");
     if(msg == "") msg = "Sorry but there is no Manual available";
-    if(manualdiv == null) {
-        //Manual Container does not exist, so create one and add to Dockmanager
-        var windowdiv = document.createElement("div");
-        windowdiv.id = "manualwindow";
-        windowdiv.setAttribute("data-panel-caption", "Manual");
-        manual_window = new PanelContainer(windowdiv, dockManager); // invisible Dialog has no size, so size it manually
-        manual_window.width = 600;
-        manual_window.height = 400;
-        manualdiv = document.createElement("div");
-        manualdiv.style.width = "100%";
-        manualdiv.style.height = "100%";
-        manualdiv.style.overflowX = "hidden";
-        windowdiv.appendChild(manualdiv);
-        manualdiv.innerHTML = msg;
-        //dockManager.floatDialog(manual_window, 50, 50);
-        dockManager.floatDialog(manual_window, 50, 50);
-    } else {
-        //Manual Container does already exist, so only change content
-        manualdiv.innerHTML = msg;
-    }
+    var windowdiv = create_window("Manual", "manual");
+    manualdiv = document.createElement("div");
+    manualdiv.style.width = "100%";
+    manualdiv.style.height = "100%";
+    manualdiv.style.overflowX = "hidden";
+    windowdiv.innerHTML = "";
+    windowdiv.appendChild(manualdiv);
+    manualdiv.innerHTML = msg;
 }
