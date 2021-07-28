@@ -51,7 +51,7 @@ import './dock';
 import { FiRefreshCw } from 'react-icons/fi';
 import { FaRegFolderOpen } from 'react-icons/fa';
 import { GrOverview } from 'react-icons/Gr';
-import { create_window } from './dock';
+import { create_window, create_code_window } from './dock';
 
 namespace S {
 	export const Body = styled.div`

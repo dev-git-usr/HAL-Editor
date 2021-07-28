@@ -202,6 +202,14 @@ window.onload = () => {
 
 };
 
+
+//////////////////////////////////////////////////////////////
+//
+//    Functions to create generic and specific Windows
+//
+//////////////////////////////////////////////////////////////
+
+//Creates and returns a new dock window - if a window with the id does already exist the existing window is returned
 export function create_window(title: string, id: string, ) {
     var windowdiv = document.getElementById(id);
     if(windowdiv == null) {
@@ -212,7 +220,6 @@ export function create_window(title: string, id: string, ) {
         var panel = new PanelContainer(windowdiv, dockManager); // invisible Dialog has no size, so size it manually
         panel.width = 600;
         panel.height = 400;
-        //dockManager.floatDialog(manual_window, 50, 50);
         dockManager.floatDialog(panel, 50, 50);
         return windowdiv;
     } else {
@@ -221,6 +228,8 @@ export function create_window(title: string, id: string, ) {
     }
 
 }
+
+//shows Manual in window with id "manual"
 export function show_manual(msg) {
     var manualdiv = document.getElementById("manual");
     if(msg == "") msg = "Sorry but there is no Manual available";
@@ -232,4 +241,18 @@ export function show_manual(msg) {
     windowdiv.innerHTML = "";
     windowdiv.appendChild(manualdiv);
     manualdiv.innerHTML = msg;
+}
+
+//create Code Mirror Window
+export function create_code_window(title: string, id: string, value: string) {
+    var windowdiv = create_window(title, id)    //create window or get the existing one
+    var cm_editor = CodeMirror(windowdiv, {
+        lineNumbers: true,
+        matchBrackets: true,
+        foldGutter: true,
+        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+        mode: "text/x-csrc",
+        value: value
+    });
+    windowdiv.editor = cm_editor;
 }
