@@ -1,6 +1,5 @@
-#overlay {
+.overlay {
   position: fixed;
-  display: block;
   width: 100%;
   height: 100%;
   top: 0;
@@ -10,9 +9,12 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 9999;
   cursor: default;
+  display: none;
 }
-
-#overlaytext{
+#connectionoverlay{
+	  display: block;
+}
+#connectionoverlaytext{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +25,25 @@
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
 }
-
+#closebutton{
+	font-size: 5em;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: white;
+}
+#closebutton:hover{
+	color: red;
+	cursor: pointer;
+}
+.centerwrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 100vh;
+}
 body {
   background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;

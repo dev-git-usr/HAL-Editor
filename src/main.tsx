@@ -51,7 +51,7 @@ import './dock';
 import { FiRefreshCw } from 'react-icons/fi';
 import { FaRegFolderOpen } from 'react-icons/fa';
 import { GrOverview } from 'react-icons/Gr';
-import { create_window, create_code_window } from './dock';
+import { create_window, create_code_window, create_overlay} from './dock';
 
 namespace S {
 	export const Body = styled.div`
@@ -326,6 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
 								</S.Editormenubutton>
 								<S.Editormenubutton onClick={() => refreshvalues()}>
 									<FiRefreshCw style={{width:"100%", height: "100%" }}/>
+								</S.Editormenubutton>
+								<S.Editormenubutton onClick={() => create_overlay("overlaytest") }>
+									test
 								</S.Editormenubutton>
 							</S.Editormenubar>
 							<S.Editorcontainer>

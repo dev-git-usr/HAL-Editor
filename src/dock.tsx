@@ -183,3 +183,10 @@ export function create_code_window(title: string, id: string, value: string) {
     });
     windowdiv.editor = cm_editor;
 }
+
+export function create_overlay(value: string) {
+    var overlaywrapperdiv = document.getElementById("overlay");
+    var overlaydiv = document.getElementById("overlaycontent");
+    overlaydiv.innerHTML = value;
+    overlaywrapperdiv.style.display = "block";
+}
