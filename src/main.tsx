@@ -23,7 +23,7 @@ import { BodyWidget } from './BodyWidget';
 import styled from '@emotion/styled';
 import {Haltable} from './Haltable';
 import { Menu, Item, Separator, Submenu } from 'react-contexify';
-import { BiHelpCircle } from 'react-icons/Bi';
+import { BiHelpCircle, BiSave} from 'react-icons/Bi';
 import 'react-contexify/dist/ReactContexify.css';
 // create an instance of the engine
 export const drageengine = new DagreEngine({
@@ -49,6 +49,8 @@ import { TrayItemWidget } from './TrayItemWidget';
 import { DefaultState } from './DefaultState';
 import './dock';
 import { FiRefreshCw } from 'react-icons/fi';
+import { FaRegFolderOpen } from 'react-icons/fa';
+import { GrOverview } from 'react-icons/Gr';
 import { create_window } from './dock';
 
 namespace S {
@@ -304,10 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
 							</Menu>
 							<S.Editormenubar>
 								<S.Editormenubutton onClick={() => save()}>
-									Save
+									<BiSave style={{width:"100%", height: "100%" }}/>
 								</S.Editormenubutton>
 								<S.Editormenubutton onClick={() => loadmodelfromserver()}>
-									Load
+									<FaRegFolderOpen style={{width:"100%", height: "100%"}}/>
 								</S.Editormenubutton>
 								<S.Editormenubutton onClick={() => autoDistribute()}>
 									Dist
@@ -320,10 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
 									Nodes
 								</S.Editormenubutton>
 								<S.Editormenubutton onClick={() => show_hide_values()}>
-									Values
+									<GrOverview style={{width:"100%", height:"100%"}}/>
 								</S.Editormenubutton>
 								<S.Editormenubutton onClick={() => refreshvalues()}>
-									<FiRefreshCw/>
+									<FiRefreshCw style={{width:"100%", height: "100%" }}/>
 								</S.Editormenubutton>
 							</S.Editormenubar>
 							<S.Editorcontainer>
