@@ -118,88 +118,15 @@ window.onload = () => {
         // Panels get a titlebar and a close button, and can also be
         // converted to a floating dialog box which can be dragged / resized
         solution = new PanelContainer(document.getElementById("solution_window"), dockManager);
-        //let signal = new PanelContainer(document.getElementById("signal_window"), dockManager);
-        //let properties = new PanelContainer(document.getElementById("properties_window"), dockManager);
-        //let toolbox = new PanelContainer(document.getElementById("toolbox_window"), dockManager);
-        //let outline = new PanelContainer(document.getElementById("outline_window"), dockManager);
-        let state = new PanelContainer(document.getElementById("state_window"), dockManager);
-        //let output = new PanelContainer(document.getElementById("output_window"), dockManager);
-        //let editor1 = new PanelContainer(document.getElementById("editor1_window"), dockManager, null, PanelType.document, true);
-        //let editor2 = new PanelContainer(document.getElementById("editor2_window"), dockManager, null, PanelType.document, true);
         let editor3 = new PanelContainer(document.getElementById("editor3_window"), dockManager, null, PanelType.document, true);
 
 		//editor2.hideCloseButton(true);
 
         // Dock the panels on the dock manager
         let documentNode = dockManager.context.model.documentManagerNode;
-        //outlineNode = dockManager.dockLeft(documentNode, outline, 0.15);
         dockManager.dockLeft(documentNode, solution, 0.15);
-        //dockManager.dockDown(outlineNode, properties, 0.6);
-        //let outputNode = dockManager.dockDown(documentNode, output, 0.2);
-        //dockManager.dockRight(outputNode, state, 0.40);
-        //dockManager.dockRight(documentNode, toolbox, 0.20);
-        //dockManager.dockFill(documentNode, editor1);
-        //dockManager.dockFill(documentNode, editor2);
-		dockManager.dockFill(documentNode, editor3);
-        //dockManager.dockFill(documentNode, signal);
-        
+		dockManager.dockFill(documentNode, editor3);        
     }
-
-    ///////////////////// Code Mirror Editor ////////////////////////////
-    // Editor 1
-    /*
-    var editor1_window_div = document.getElementById("editor1_window");
-    var editor1 = CodeMirror(editor1_window_div, {
-        lineNumbers: true,
-        matchBrackets: true,
-        foldGutter: true,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        mode: "text/x-csrc",
-        value: source_steering_h,
-        onCursorActivity: function () {
-            editor1.setLineClass(editorLine1, null, null);
-            editorLine1 = editor1.setLineClass(editor1.getCursor().line, null, "activeline");
-        }
-    });
-    editor1_window_div.editor = editor1;
-*/
-	/*
-    var signal_window_div = document.getElementById("signal_window");
-    cm_signals = CodeMirror(signal_window_div, {
-        lineNumbers: true,
-        matchBrackets: true,
-        foldGutter: true,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        mode: "text/x-csrc",
-        onCursorActivity: function () {
-            signal.setLineClass(signalLine1, null, null);
-            signalLine1 = signal.setLineClass(signal.getCursor().line, null, "activeline");
-        }
-    });
-    signal_window_div.editor = cm_signals;
-*/
-
-    // Editor 2
-    /*
-    var editor2_window_div = document.getElementById("editor2_window");
-    var cm_editor2 = CodeMirror(editor2_window_div, {
-        lineNumbers: true,
-        matchBrackets: true,
-        foldGutter: true,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        mode: "text/x-csrc",
-        value: source_steering_cpp,
-        onCursorActivity: function () {
-            editor2.setLineClass(editorLine2, null, null);
-            editorLine2 = editor2.setLineClass(editor2.getCursor().line, null, "activeline");
-        }
-    });
-    editor2_window_div.editor = cm_editor2;
-*/
-    ////////////////////////////////////////////////////////////////
-
-    //InitDebugTreeVis(window.dockManager);
-
 };
 
 
