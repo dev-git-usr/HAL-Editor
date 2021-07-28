@@ -23,11 +23,12 @@ How to start:
 - install node.js / npm on the machines where the components should run.
 - copy this Repo on your machine
 - run the command "npm install" inside the folder to installl dependancies
+- run "npm start" inside the folder to start the server
 - to test the environment open "127.0.0.1:9000" or "0.0.0.0:9000" in your Browser.
 - the following screen should be shown
 ![](./no_connection.png)
 - Now we have to start the second Server component.
-- If the components are running on different machines we have to change "connector.tsx":
+- If the components are running on different machines we have to change "src/haldata/connector.tsx":
     change 
         const socket = io("ws://:8070", {
     to:
@@ -35,4 +36,4 @@ How to start:
 - open an additional terminal and run "node server.js" - the terminal should print "Server started!"
 - Your Browser should connect automaticaly to the HAL server and view your current HAL configuration.
 
-Feel free to report issues or sutmit pull requests.
+Feel free to report issues or submit pull requests.

@@ -23,6 +23,7 @@ import { BodyWidget } from './BodyWidget';
 import styled from '@emotion/styled';
 import {Haltable} from './Haltable';
 import { Menu, Item, Separator, Submenu } from 'react-contexify';
+import { BiHelpCircle } from 'react-icons/Bi';
 import 'react-contexify/dist/ReactContexify.css';
 // create an instance of the engine
 export const drageengine = new DagreEngine({
@@ -121,6 +122,7 @@ namespace S {
 		flex-grow: 1;
 		height: 100%;
 	`;
+	
 }
 
 
@@ -156,7 +158,7 @@ export function handleselectionchanged(e) {
 	//only show detailinformation if only one element is selected
 	if(entities.length == 1){
 		if(entities[0] instanceof NodeModel){
-			console.log(entities[0]);
+			//console.log(entities[0]);
 			ReactDOM.render(<Haltable node={entities[0]}/>, document.getElementById('haltablediv'));
 			return;
 		}
@@ -332,5 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					</S.Content>, document.querySelector('#editor3_window'));
 	/*ReactDOM.render(<TrayWidget id="signaltray">
 					</TrayWidget>, document.querySelector('#solution_window'));*/
+	ReactDOM.render(
+			<BiHelpCircle id="helpicon" onClick={({event}) => HAL_get_Manual("Help")} />, document.querySelector('#helpbutton'));
 });
 
