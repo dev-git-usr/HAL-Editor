@@ -30,11 +30,11 @@ const socket = io("ws://:8070", {
   }
 });
 socket.on("connect", () => {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("connectionoverlay").style.display = "none";
 });
 socket.on("disconnect", () => {
 	console.log('disconnected');
-    document.getElementById("overlay").style.display = "block";
+    document.getElementById("connectionoverlay").style.display = "block";
   });
 socket.on("HAL_Ports_and_Functions", (data) => {
     data.forEach(func => {
