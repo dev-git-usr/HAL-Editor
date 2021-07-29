@@ -11,8 +11,7 @@ import createEngine, {
 	LinkModel,
 	RightAngleLinkModel,
     PortModelAlignment,
-	DagreEngine,
-    DiagramModel } from '@projectstorm/react-diagrams';
+	DiagramModel } from '@projectstorm/react-diagrams';
 import { DeleteItemsAction } from './CustomDeleteAction';
 import { TSCustomNodeFactory } from './custom-node-ts/TSCustomNodeFactory';
 import { TSCustomNodeModel } from './custom-node-ts/TSCustomNodeModel';
@@ -26,6 +25,7 @@ import { Menu, Item, Separator, Submenu } from 'react-contexify';
 import { BiHelpCircle, BiSave} from 'react-icons/Bi';
 import 'react-contexify/dist/ReactContexify.css';
 // create an instance of the engine
+import {DagreEngine} from './customdrageengine';
 export const drageengine = new DagreEngine({
 	graph: {
 		rankdir: 'LR',
@@ -51,6 +51,7 @@ import './dock';
 import { FiRefreshCw } from 'react-icons/fi';
 import { FaRegFolderOpen } from 'react-icons/fa';
 import { GrOverview } from 'react-icons/Gr';
+import { MdZoomOutMap } from 'react-icons/md';
 import { create_window, create_code_window, create_overlay} from './dock';
 
 namespace S {
@@ -275,6 +276,7 @@ function hide_unused_Nodes() {
 		if(!used) {
 			//node.isvisible = false;
 			node.getOptions().isvisible = false;
+			node.updateDimensions({width : 0, height : 0});
 			//node.setvisibility(false);
 		}
 	})
@@ -327,8 +329,11 @@ document.addEventListener('DOMContentLoaded', () => {
 								<S.Editormenubutton onClick={() => refreshvalues()}>
 									<FiRefreshCw style={{width:"100%", height: "100%" }}/>
 								</S.Editormenubutton>
-								<S.Editormenubutton onClick={() => create_overlay("overlaytest") }>
+								<S.Editormenubutton onClick={() => ovload() }>
 									test
+								</S.Editormenubutton>
+								<S.Editormenubutton onClick={() => engine.zoomToFit()}>
+									<MdZoomOutMap style={{width:"100%", height: "100%"}}/>
 								</S.Editormenubutton>
 							</S.Editormenubar>
 							<S.Editorcontainer>
@@ -343,7 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
 			<BiHelpCircle id="helpicon" onClick={({event}) => {
 				var window = create_window("Help", "help");
-				window.innerHTML = '<object type="text/html" data="help.html" ></object>'
+				window.innerHTML = '<object type="text/html" data="help/index.html" style="width: 100%; height: 100%;	overflow: scroll; overflow-x: scroll; overflow-x: hidden"></object>'
 			}} />, document.querySelector('#helpbutton'));
 });
 
+function ovload() {
+	ReactDOM.render(<BiHelpCircle/>, create_overlay());
+}

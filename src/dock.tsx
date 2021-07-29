@@ -184,9 +184,9 @@ export function create_code_window(title: string, id: string, value: string) {
     windowdiv.editor = cm_editor;
 }
 
-export function create_overlay(value: string) {
+export function create_overlay() {
     var overlaywrapperdiv = document.getElementById("overlay");
     var overlaydiv = document.getElementById("overlaycontent");
-    overlaydiv.innerHTML = value;
     overlaywrapperdiv.style.display = "block";
+    return overlaydiv;
 }
