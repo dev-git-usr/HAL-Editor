@@ -29,6 +29,7 @@ import {DagreEngine} from './customdrageengine';
 export const drageengine = new DagreEngine({
 	graph: {
 		rankdir: 'LR',
+		align: 'UL',
 		ranker: 'tight-tree',
 		marginx: 5,
 		marginy: 5
