@@ -22,8 +22,9 @@ import { BodyWidget } from './BodyWidget';
 import styled from '@emotion/styled';
 import {Haltable} from './Haltable';
 import { Menu, Item, Separator, Submenu } from 'react-contexify';
-import { BiHelpCircle, BiSave} from 'react-icons/Bi';
+import { BiHelpCircle, BiSave} from 'react-icons/bi';
 import 'react-contexify/dist/ReactContexify.css';
+import { SimpleDialog } from './dialogs';
 // create an instance of the engine
 import {DagreEngine} from './customdrageengine';
 export const drageengine = new DagreEngine({
@@ -51,7 +52,7 @@ import { DefaultState } from './DefaultState';
 import './dock';
 import { FiRefreshCw } from 'react-icons/fi';
 import { FaRegFolderOpen } from 'react-icons/fa';
-import { GrOverview } from 'react-icons/Gr';
+import { GrOverview } from 'react-icons/gr';
 import { MdZoomOutMap } from 'react-icons/md';
 import { create_window, create_code_window, create_overlay} from './dock';
 
@@ -287,6 +288,8 @@ function save(){
 	var str = JSON.stringify(model.serialize());
 	savemodelonserver(str);
 }
+//const [open, setOpen] = React.useState(false);
+//const [selectedValue, setSelectedValue] = React.useState("Test");
 
 document.addEventListener('DOMContentLoaded', () => {
 	//const rootElement = document.getElementById("editor3_window");
@@ -330,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
 								<S.Editormenubutton onClick={() => refreshvalues()}>
 									<FiRefreshCw style={{width:"100%", height: "100%" }}/>
 								</S.Editormenubutton>
-								<S.Editormenubutton onClick={() => ovload() }>
+								<S.Editormenubutton onClick={() => handleClickOpen()}>
 									test
 								</S.Editormenubutton>
 								<S.Editormenubutton onClick={() => engine.zoomToFit()}>
@@ -351,8 +354,21 @@ document.addEventListener('DOMContentLoaded', () => {
 				var window = create_window("Help", "help");
 				window.innerHTML = '<object type="text/html" data="help/index.html" style="width: 100%; height: 100%;	overflow: scroll; overflow-x: scroll; overflow-x: hidden"></object>'
 			}} />, document.querySelector('#helpbutton'));
+	//ReactDOM.render( <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />, document.querySelector('#dialogcontainer'));
+	
 });
+/*
+const handleClickOpen = () => {
+    setOpen(true);
+  };
+const handleClose = (value: string) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };*/
 
 function ovload() {
-	ReactDOM.render(<BiHelpCircle/>, create_overlay());
+	ReactDOM.render( <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />, document.querySelector('#dialogcontainer'));
+	//ReactDOM.render(<BiHelpCircle/>, create_overlay());
 }
+
+//loadmodelfromserver()
